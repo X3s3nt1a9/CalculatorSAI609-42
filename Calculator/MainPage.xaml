@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.MainPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"
+               Text="Display"
+               x:Name="Display"
+               Grid.ColumnSpan="4"
+               HorizontalTextAlignment="End"
+               VerticalTextAlignment="Center"
+               FontAttributes="Bold"
+               Padding="20"
+               FontSize="30"/>
+
+            <Grid Grid.Row="1" Grid.ColumnSpan="4" Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Text="MS" Grid.Column="0" Clicked="ButtonClicked"/>
+                <Button Text="MR" Grid.Column="1" Clicked="ButtonClicked"/>
+                <Button Text="MC" Grid.Column="2" Clicked="ButtonClicked"/>
+                <Button Text="M+" Grid.Column="3" Clicked="ButtonClicked"/>
+                <Button Text="M-" Grid.Column="4" Clicked="ButtonClicked"/>
+                <Button Text="M⮟" Grid.Column="5" Clicked="ShowMemory"/>
+            </Grid>
+
+            <Button Text="%"      Grid.Column="0" Grid.Row="2" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="CE"     Grid.Column="1" Grid.Row="2" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="C"      Grid.Column="2" Grid.Row="2" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="Return" Grid.Column="3" Grid.Row="2" Clicked="ButtonClicked" FontSize="20"/>
+
+            <Button Text="1/x" Grid.Column="0" Grid.Row="3" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="x^2" Grid.Column="1" Grid.Row="3" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="√x"  Grid.Column="2" Grid.Row="3" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="÷"   Grid.Column="3" Grid.Row="3" Clicked="ButtonClicked" FontSize="20"/>
+
+            <Button Text="7" Grid.Column="0" Grid.Row="4" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="8" Grid.Column="1" Grid.Row="4" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="9" Grid.Column="2" Grid.Row="4" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="x" Grid.Column="3" Grid.Row="4" Clicked="ButtonClicked" FontSize="20"/>
+
+            <Button Text="4" Grid.Column="0" Grid.Row="5" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="5" Grid.Column="1" Grid.Row="5" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="6" Grid.Column="2" Grid.Row="5" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="-" Grid.Column="3" Grid.Row="5" Clicked="ButtonClicked" FontSize="20"/>
+
+            <Button Text="1" Grid.Column="0" Grid.Row="6" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="2" Grid.Column="1" Grid.Row="6" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="3" Grid.Column="2" Grid.Row="6" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="+" Grid.Column="3" Grid.Row="6" Clicked="ButtonClicked" FontSize="20"/>
+
+            <Button Text="+/-" Grid.Column="0" Grid.Row="7" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="0" Grid.Column="1" Grid.Row="7" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="," Grid.Column="2" Grid.Row="7" Clicked="ButtonClicked" FontSize="20"/>
+            <Button Text="=" Grid.Column="3" Grid.Row="7" Clicked="ButtonClicked" FontSize="20"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Журнал" Grid.Column="0" Clicked="ShowHistory"/>
+                <Button Text="Память" Grid.Column="1" Clicked="ShowMemory"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ScrollView x:Name="HistoryScroll" IsVisible="True">
+                    <VerticalStackLayout x:Name="HistoryList" Spacing="2">
+                        <Label x:Name="EmptyHistoryLabel" Text="Журнала еще нет." Padding="10"/>
+                    </VerticalStackLayout>
+                </ScrollView>
+
+                <ScrollView x:Name="MemoryScroll" IsVisible="False">
+                    <VerticalStackLayout x:Name="MemoryList" Spacing="2">
+                        <Label x:Name="EmptyMemoryLabel" Text="В памяти ничего не сохранено." Padding="10"/>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Grid>
+
+            <Button Grid.Row="2"
+                    Text="🗑"
+                    HorizontalOptions="End"
+                    WidthRequest="50"
+                    FontSize="18"
+                    Clicked="ClearClicked"/>
+
+        </Grid>
+    </Grid>
+</ContentPage>

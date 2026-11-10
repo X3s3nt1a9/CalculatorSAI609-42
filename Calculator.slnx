@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="CalcSuperPuper/CalcSuperPuper.csproj" Id="ceafacc6-0190-4f15-ac2d-cc8d4d05cc9f" />
+  <Project Path="CalcSuperPuperTests/CalcSuperPuperTests.csproj" Id="f727c3cf-eae8-4603-b699-e71013b57a9f" />
+  <Project Path="Calculator/Calculator.csproj" />
+</Solution>
